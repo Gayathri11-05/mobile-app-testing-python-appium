@@ -6,6 +6,12 @@ __pycache__/
 # C extensions
 *.so
 
+# OS / Editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
 # Distribution / packaging
 .Python
 build/
@@ -54,7 +60,6 @@ cover/
 # Translations
 *.mo
 *.pot
-.DS_Store
 
 # Django stuff:
 *.log
