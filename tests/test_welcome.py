@@ -62,5 +62,6 @@ class TestAccount:
 
 
             logger.info("Test passed: test_open_account_details_ios")
+            """ """
 
 
