@@ -1,5 +1,5 @@
 import pytest
-from pages.sign_up import SignupPage
+from src.pages.sign_up import SignupPage
 
 @pytest.mark.usefixtures("driver")
 class TestSignup:

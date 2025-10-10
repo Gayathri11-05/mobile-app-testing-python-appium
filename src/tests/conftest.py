@@ -3,9 +3,9 @@
 import pytest
 from typing import Generator
 from selenium.webdriver.remote.webdriver import WebDriver
-from utilities.driver_factory import DriverFactory
-from utilities.logger import Logger
-from utilities.mobile_actions import MobileActions
+from src.utilities.driver_factory import DriverFactory
+from src.utilities.logger import Logger
+from src.utilities.mobile_actions import MobileActions
 
 logger = Logger.get_logger(__name__)
 

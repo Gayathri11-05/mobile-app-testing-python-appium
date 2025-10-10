@@ -1,9 +1,9 @@
 """Dashboard feature test cases."""
 
 import pytest
-from config.config import Config
-from pages.dashboard_page import DashboardPage
-from utilities.logger import Logger
+from src.config.config import Config
+from src.pages.dashboard_page import DashboardPage
+from src.utilities.logger import Logger
 
 logger = Logger.get_logger(__name__)
 

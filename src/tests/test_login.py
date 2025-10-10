@@ -2,9 +2,9 @@
 
 import pytest
 from src.config.config import Config
-from pages.login_page import LoginPage
-from utilities.logger import Logger
-from pages.sign_up import SignupPage
+from src.pages.login_page import LoginPage
+from src.pages.sign_up import SignupPage
+from src.utilities.logger import Logger
 
 logger = Logger.get_logger(__name__)
 
