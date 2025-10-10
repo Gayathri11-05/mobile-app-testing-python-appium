@@ -1,7 +1,7 @@
 """Login feature test cases for Digital Bank App."""
 
 import pytest
-from config.config import Config
+from src.config.config import Config
 from pages.login_page import LoginPage
 from utilities.logger import Logger
 from pages.sign_up import SignupPage
