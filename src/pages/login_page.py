@@ -1,7 +1,7 @@
 """Login page object."""
 
 from appium.webdriver.common.appiumby import AppiumBy as By
-from pages.base_page import BasePage
+from src.pages.base_page import BasePage
 
 
 class LoginPage(BasePage):
