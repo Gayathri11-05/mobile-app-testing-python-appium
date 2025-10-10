@@ -17,16 +17,12 @@ class Config:
     """
 
     # Appium Server Configuration
+    # Appium Server Configuration
+    # Appium Server Configuration
     APPIUM_SERVER_URL = os.getenv(
         "APPIUM_SERVER_URL",
-        "http://127.0.0.1:4723"
+        f"https://{os.getenv('PERFECTO_CLOUD_NAME', 'trial')}.perfectomobile.com/nexperience/perfectomobile/wd/hub"
     )
-
-# replace above with
-#     APPIUM_SERVER_URL = os.getenv(
-#         "APPIUM_SERVER_URL",
-#         f"https://{os.getenv('PERFECTO_CLOUD_NAME', '')}.perfectomobile.com/nexperience/perfectomobile/wd/hub"
-#     )
 
     # Platform Selection
     PLATFORM = os.getenv("PLATFORM", Platform.ANDROID.value)
@@ -54,9 +50,8 @@ class Config:
     TEST_USERNAME = os.getenv("TEST_USERNAME", "bob@example.com")
     TEST_PASSWORD = os.getenv("TEST_PASSWORD", "10203040")
 
-    # replace above with
-        # PERFECTO_SECURITY_TOKEN = os.getenv("PERFECTO_SECURITY_TOKEN", "")
-        # PERFECTO_CLOUD_NAME = os.getenv("PERFECTO_CLOUD_NAME", "")
+    PERFECTO_CLOUD_NAME = os.getenv("PERFECTO_CLOUD_NAME", "trial")
+    PERFECTO_SECURITY_TOKEN = os.getenv("PERFECTO_SECURITY_TOKEN", "eyJhbGciOiJIUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI2ZDM2NmJiNS01NDAyLTQ4MmMtYTVhOC1kODZhODk4MDYyZjIifQ.eyJpYXQiOjE3NTk3NDg2MjMsImp0aSI6ImVhMjI1ZTY1LThjYmMtNGYxZS1iZTA2LWRjOTAzNTZjNDgwYSIsImlzcyI6Imh0dHBzOi8vYXV0aDMucGVyZmVjdG9tb2JpbGUuY29tL2F1dGgvcmVhbG1zL3RyaWFsLXBlcmZlY3RvbW9iaWxlLWNvbSIsImF1ZCI6Imh0dHBzOi8vYXV0aDMucGVyZmVjdG9tb2JpbGUuY29tL2F1dGgvcmVhbG1zL3RyaWFsLXBlcmZlY3RvbW9iaWxlLWNvbSIsInN1YiI6IjVlYjU0ZTNjLWJkNzMtNGJjZC05YTNjLTBhMzQzOGNjNjgyNiIsInR5cCI6Ik9mZmxpbmUiLCJhenAiOiJvZmZsaW5lLXRva2VuLWdlbmVyYXRvciIsIm5vbmNlIjoiN2Q2OWY2ZDktMGEyYS00YjQxLTg3NjgtY2Y0MzdmMTQ1MzExIiwic2Vzc2lvbl9zdGF0ZSI6IjA4YWQ5Mzc3LTBlMTAtNGYwNS05MWE4LTcxMjQzNzk1ZGRkNCIsInNjb3BlIjoib3BlbmlkIG9mZmxpbmVfYWNjZXNzIHByb2ZpbGUgZW1haWwiLCJzaWQiOiIwOGFkOTM3Ny0wZTEwLTRmMDUtOTFhOC03MTI0Mzc5NWRkZDQifQ.HYBv6-AEgzMCRNOx8bWRkJrsaKObRBAU5QJ9p3rWYPM")
 
     # Reporting Configuration
     REPORTS_DIR = "reports"

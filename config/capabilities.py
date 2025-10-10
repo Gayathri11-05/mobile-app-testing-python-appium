@@ -25,6 +25,7 @@ class Capabilities:
             "noReset": False,
             "fullReset": False,
             "newCommandTimeout": Config.COMMAND_TIMEOUT,
+            "securityToken": Config.PERFECTO_SECURITY_TOKEN,
         }
 
     @staticmethod
@@ -42,6 +43,7 @@ class Capabilities:
             "noReset": False,
             "fullReset": False,
             "newCommandTimeout": Config.COMMAND_TIMEOUT,
+            "securityToken": Config.PERFECTO_SECURITY_TOKEN,
         }
 
     @staticmethod

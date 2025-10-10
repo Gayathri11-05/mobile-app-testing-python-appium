@@ -1,7 +1,7 @@
 import pytest
 from pages.sign_up import SignupPage
 
-@pytest.mark.usefixtures("driver_setup")
+@pytest.mark.usefixtures("driver")
 class TestSignup:
 
     @pytest.fixture(autouse=True)
@@ -13,7 +13,7 @@ class TestSignup:
         user_data = {
             "first_name": "John",
             "last_name": "Doe",
-            "ssn": "123-45-6789",
+            "ssn": "123456789",
             "email": "john.doe@example.com",
             "password": "Secure@123",
             "address": "123 Elm Street",
