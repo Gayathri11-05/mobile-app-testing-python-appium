@@ -1,9 +1,10 @@
 from appium.webdriver.common.appiumby import AppiumBy
 
+
 class DepositPage:
     def __init__(self, driver):
         self.driver = driver
-        self.platform = driver.capabilities.get("platformName").lower()
+        self.platform = driver.capabilities.get("platformName", "").lower()
 
     # ===============================
     # LOCATORS
@@ -14,19 +15,11 @@ class DepositPage:
         AppiumBy.XPATH,
         "//*[@resource-id='xyz.digitalbank.demo:id/accountSelect' or @content-desc='Account Picker']"
     )
-    IOS_ACCOUNT_PICKER = (
-        AppiumBy.XPATH,
-        "//XCUIElementTypePicker"
-    )
 
     # --- Transaction Description ---
     ANDROID_TRANSACTION_DESC_FIELD = (
         AppiumBy.XPATH,
         "//*[@resource-id='xyz.digitalbank.demo:id/transactionDescriptionInput' or @content-desc='Enter Description']"
-    )
-    IOS_TRANSACTION_DESC_FIELD = (
-        AppiumBy.XPATH,
-        "//*[@value='Enter Description']"
     )
 
     # --- Transaction Amount ---
@@ -34,19 +27,11 @@ class DepositPage:
         AppiumBy.XPATH,
         "//*[@resource-id='xyz.digitalbank.demo:id/transactionAmountInput' or @content-desc='Enter Amount']"
     )
-    IOS_TRANSACTION_AMOUNT_FIELD = (
-        AppiumBy.XPATH,
-        "//*[@value='Enter Amount']"
-    )
 
     # --- Create / Debit Switch ---
     ANDROID_CREATE_DEBIT_SWITCH = (
         AppiumBy.XPATH,
         "//*[@resource-id='xyz.digitalbank.demo:id/transactionSwitch' or @content-desc='Create or Debit']"
-    )
-    IOS_CREATE_DEBIT_SWITCH = (
-        AppiumBy.XPATH,
-        "//XCUIElementTypeSwitch"
     )
 
     # --- Submit Button ---
@@ -54,9 +39,31 @@ class DepositPage:
         AppiumBy.XPATH,
         "//*[@resource-id='xyz.digitalbank.demo:id/submitButton' or @text='Submit']"
     )
+
+    # --- iOS Locators ---
+    IOS_ACCOUNT_PICKER = (
+        AppiumBy.IOS_PREDICATE,
+        "type == 'XCUIElementTypePickerWheel' AND value == 'Individual Savings = 1000075.0'"
+    )
+
+    IOS_TRANSACTION_DESC_FIELD = (
+        AppiumBy.IOS_PREDICATE,
+        "type == 'XCUIElementTypeTextField' AND value == 'Enter Description'"
+    )
+
+    IOS_TRANSACTION_AMOUNT_FIELD = (
+        AppiumBy.IOS_PREDICATE,
+        "type == 'XCUIElementTypeTextField' AND value == 'Enter Amount'"
+    )
+
+    IOS_CREATE_DEBIT_SWITCH = (
+        AppiumBy.IOS_PREDICATE,
+        "type == 'XCUIElementTypeSwitch'"
+    )
+
     IOS_SUBMIT_BUTTON = (
-        AppiumBy.XPATH,
-        "//XCUIElementTypeButton[@label='Submit']"
+        AppiumBy.IOS_PREDICATE,
+        "type == 'XCUIElementTypeButton' AND name == 'Submit'"
     )
 
     # ===============================
