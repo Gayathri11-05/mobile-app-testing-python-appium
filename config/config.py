@@ -56,9 +56,7 @@ class Config:
     # Reset configurations
 
     ANDROID_NO_RESET = os.getenv("ANDROID_NO_RESET", "false").lower() == "true"
-    ANDROID_FULL_RESET = os.getenv("ANDROID_FULL_RESET", "false").lower() == "true"
     IOS_NO_RESET = os.getenv("IOS_NO_RESET", "false").lower() == "true"
-    IOS_FULL_RESET = os.getenv("IOS_FULL_RESET", "false").lower() == "true"
 
     # Reporting Configuration
     REPORTS_DIR = "reports"
