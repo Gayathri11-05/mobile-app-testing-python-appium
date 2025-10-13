@@ -1,0 +1,27 @@
+[pytest]
+# -------------------------------
+# Pytest Configuration File
+# -------------------------------
+# Root directory for test discovery
+testpaths = tests
+
+# Patterns for test file discovery
+python_files = test_*.py
+python_classes = Test*
+python_functions = test_*
+
+# Log configuration
+log_cli = true
+log_cli_level = INFO
+log_cli_format = %(asctime)s [%(levelname)s] %(message)s
+
+# Report configuration
+addopts = --html=reports/report.html --self-contained-html -v
+
+# Custom markers for test categorization
+markers =
+    android: marks tests to run on Android devices
+    ios: marks tests to run on iOS devices
+    smoke: marks smoke test cases
+    regression: marks regression test cases
+    dashboard: marks dashboard-related test cases

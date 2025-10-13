@@ -3,84 +3,87 @@
 import os
 from enum import Enum
 
-
 class Platform(Enum):
     """Supported mobile platforms."""
+
     ANDROID = "android"
     IOS = "ios"
 
 
 class Config:
     """
-    Central configuration class for framework settings.
-    Manages platform, device, app, timeout, and Perfecto credentials.
+    Central configuration class for framework settings. This class manages all configuration parameters including
+    platform settings, timeouts, and application details.
     """
 
-    # ----------------------------
-    # 🔹 Perfecto Cloud Configuration
-    # ----------------------------
-    PERFECTO_CLOUD_NAME = os.getenv("PERFECTO_CLOUD_NAME", "trial")  # change if not 'trial'
-    PERFECTO_SECURITY_TOKEN = os.getenv("PERFECTO_SECURITY_TOKEN", "eyJhbGciOiJIUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI2ZDM2NmJiNS01NDAyLTQ4MmMtYTVhOC1kODZhODk4MDYyZjIifQ.eyJpYXQiOjE3NTk3NDQ4MTIsImp0aSI6ImUxYjQzNWQ0LTQyMTEtNGE0ZC1iZWIyLWMxNTA4MjQ2NGZkZSIsImlzcyI6Imh0dHBzOi8vYXV0aDMucGVyZmVjdG9tb2JpbGUuY29tL2F1dGgvcmVhbG1zL3RyaWFsLXBlcmZlY3RvbW9iaWxlLWNvbSIsImF1ZCI6Imh0dHBzOi8vYXV0aDMucGVyZmVjdG9tb2JpbGUuY29tL2F1dGgvcmVhbG1zL3RyaWFsLXBlcmZlY3RvbW9iaWxlLWNvbSIsInN1YiI6IjQwNTcwNGRmLTQ1MzMtNGQxYS1iYjc3LWExYTM1ZWRjMDM2NCIsInR5cCI6Ik9mZmxpbmUiLCJhenAiOiJvZmZsaW5lLXRva2VuLWdlbmVyYXRvciIsIm5vbmNlIjoiYmJiZWNhZmMtN2NjZS00MWJlLWJkMjQtZGY2OTVmNjlkMDVlIiwic2Vzc2lvbl9zdGF0ZSI6ImUyYmRlNmJiLWViNmQtNDFkNi04MjcyLWZlOGFiZmI0ZjQ4OCIsInNjb3BlIjoib3BlbmlkIG9mZmxpbmVfYWNjZXNzIHByb2ZpbGUgZW1haWwiLCJzaWQiOiJlMmJkZTZiYi1lYjZkLTQxZDYtODI3Mi1mZThhYmZiNGY0ODgifQ.8EKfMAY_FB3ng7lBwG31du6huoTNAVJox5hvtpnMq2w")
-
-    # Construct the Appium Server URL dynamically for Perfecto
-    APPIUM_SERVER_URL = (
-        f"https://{PERFECTO_CLOUD_NAME}.perfectomobile.com/nexperience/perfectomobile/wd/hub"
+    # Appium Server Configuration
+    # Appium Server Configuration
+    # Appium Server Configuration
+    APPIUM_SERVER_URL = os.getenv(
+        "APPIUM_SERVER_URL",
+        f"https://{os.getenv('PERFECTO_CLOUD_NAME', 'trial')}.perfectomobile.com/nexperience/perfectomobile/wd/hub"
     )
 
-    # ----------------------------
-    # 🔹 Platform Selection
-    # ----------------------------
+    # Platform Selection
     PLATFORM = os.getenv("PLATFORM", Platform.ANDROID.value)
 
-    # ----------------------------
-    # 🔹 Timeout Configuration
-    # ----------------------------
+    # Timeout Configuration
     IMPLICIT_WAIT = int(os.getenv("IMPLICIT_WAIT", "10"))
     EXPLICIT_WAIT = int(os.getenv("EXPLICIT_WAIT", "20"))
     COMMAND_TIMEOUT = int(os.getenv("COMMAND_TIMEOUT", "120"))
 
-    # ----------------------------
-    # 🔹 Application Configuration
-    # ----------------------------
-    # Android App Details
-    ANDROID_APP_PACKAGE = os.getenv("ANDROID_APP_PACKAGE", "xyz.digitalbank.demo")
-    ANDROID_APP_ACTIVITY = os.getenv("ANDROID_APP_ACTIVITY", "xyz.digitalbank.demo.MainActivity")
+    # Application Configuration
+    ANDROID_APP_PACKAGE = os.getenv("ANDROID_APP_PACKAGE", "")
+    ANDROID_APP_ACTIVITY = os.getenv("ANDROID_APP_ACTIVITY", "")
+    IOS_BUNDLE_ID = os.getenv("IOS_BUNDLE_ID", "")
 
-    # iOS App Details
-    IOS_BUNDLE_ID = os.getenv("IOS_BUNDLE_ID", "demoddbank.perforce.com")
+    # update the above details
 
-    # ----------------------------
-    # 🔹 Device Configuration
-    # ----------------------------
-    # Android Device (From Perfecto Device ID)
-    ANDROID_DEVICE_NAME = os.getenv("ANDROID_DEVICE_NAME", "37271FDJH008ER")
-    ANDROID_PLATFORM_VERSION = os.getenv("ANDROID_PLATFORM_VERSION", "16")
+    # Device Configuration
+    ANDROID_DEVICE_NAME = os.getenv("ANDROID_DEVICE_NAME", "emulator-5554")
+    ANDROID_PLATFORM_VERSION = os.getenv("ANDROID_PLATFORM_VERSION", "13.0")
 
-    # iOS Device (From Perfecto Device UDID)
-    IOS_DEVICE_NAME = os.getenv("IOS_DEVICE_NAME", "00008110-000951DE34A2801E")
-    IOS_PLATFORM_VERSION = os.getenv("IOS_PLATFORM_VERSION", "17.3")
+    IOS_DEVICE_NAME = os.getenv("IOS_DEVICE_NAME", "iPhone 14")
+    IOS_PLATFORM_VERSION = os.getenv("IOS_PLATFORM_VERSION", "16.0")
 
-    # ----------------------------
-    # 🔹 Reporting Configuration
-    # ----------------------------
+    # Test Data
+    TEST_USERNAME = os.getenv("TEST_USERNAME", "bob@example.com")
+    TEST_PASSWORD = os.getenv("TEST_PASSWORD", "10203040")
+
+    PERFECTO_CLOUD_NAME = os.getenv("PERFECTO_CLOUD_NAME", "trial")
+    PERFECTO_SECURITY_TOKEN = os.getenv("PERFECTO_SECURITY_TOKEN", "eyJhbGciOiJIUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI2ZDM2NmJiNS01NDAyLTQ4MmMtYTVhOC1kODZhODk4MDYyZjIifQ.eyJpYXQiOjE3NTk3NDg2MjMsImp0aSI6ImVhMjI1ZTY1LThjYmMtNGYxZS1iZTA2LWRjOTAzNTZjNDgwYSIsImlzcyI6Imh0dHBzOi8vYXV0aDMucGVyZmVjdG9tb2JpbGUuY29tL2F1dGgvcmVhbG1zL3RyaWFsLXBlcmZlY3RvbW9iaWxlLWNvbSIsImF1ZCI6Imh0dHBzOi8vYXV0aDMucGVyZmVjdG9tb2JpbGUuY29tL2F1dGgvcmVhbG1zL3RyaWFsLXBlcmZlY3RvbW9iaWxlLWNvbSIsInN1YiI6IjVlYjU0ZTNjLWJkNzMtNGJjZC05YTNjLTBhMzQzOGNjNjgyNiIsInR5cCI6Ik9mZmxpbmUiLCJhenAiOiJvZmZsaW5lLXRva2VuLWdlbmVyYXRvciIsIm5vbmNlIjoiN2Q2OWY2ZDktMGEyYS00YjQxLTg3NjgtY2Y0MzdmMTQ1MzExIiwic2Vzc2lvbl9zdGF0ZSI6IjA4YWQ5Mzc3LTBlMTAtNGYwNS05MWE4LTcxMjQzNzk1ZGRkNCIsInNjb3BlIjoib3BlbmlkIG9mZmxpbmVfYWNjZXNzIHByb2ZpbGUgZW1haWwiLCJzaWQiOiIwOGFkOTM3Ny0wZTEwLTRmMDUtOTFhOC03MTI0Mzc5NWRkZDQifQ.HYBv6-AEgzMCRNOx8bWRkJrsaKObRBAU5QJ9p3rWYPM")
+
+    # Reporting Configuration
     REPORTS_DIR = "reports"
     LOGS_DIR = "logs"
     SCREENSHOTS_DIR = os.path.join(REPORTS_DIR, "screenshots")
 
-    # ----------------------------
-    # 🔹 Platform Helpers
-    # ----------------------------
     @classmethod
     def get_platform(cls):
-        """Get the current platform."""
+        """
+        Get the current platform.
+
+        Returns:
+            Platform: The current platform enum value
+        """
         return Platform(cls.PLATFORM.lower())
 
     @classmethod
     def is_android(cls):
-        """Check if current platform is Android."""
+        """
+        Check if current platform is Android.
+
+        Returns:
+            bool: True if platform is Android, False otherwise
+        """
         return cls.get_platform() == Platform.ANDROID
 
     @classmethod
     def is_ios(cls):
-        """Check if current platform is iOS."""
+        """
+        Check if current platform is iOS.
+
+        Returns:
+            bool: True if platform is iOS, False otherwise
+        """
         return cls.get_platform() == Platform.IOS
