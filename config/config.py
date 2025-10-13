@@ -33,11 +33,11 @@ class Config:
     COMMAND_TIMEOUT = int(os.getenv("COMMAND_TIMEOUT", "120"))
 
     # Application Configuration
-    ANDROID_APP_PACKAGE = os.getenv("ANDROID_APP_PACKAGE", "")
-    ANDROID_APP_ACTIVITY = os.getenv("ANDROID_APP_ACTIVITY", "")
+    ANDROID_APP_PACKAGE = os.getenv("xyz.digitalbank.demo", "")
+    ANDROID_APP_ACTIVITY = os.getenv("xyz.digitalbank.demo.MainActivity", "")
     IOS_BUNDLE_ID = os.getenv("IOS_BUNDLE_ID", "")
 
-    # update the above details
+    # ---------------------update the above details---------------------
 
     # Device Configuration
     ANDROID_DEVICE_NAME = os.getenv("ANDROID_DEVICE_NAME", "emulator-5554")
@@ -52,6 +52,13 @@ class Config:
 
     PERFECTO_CLOUD_NAME = os.getenv("PERFECTO_CLOUD_NAME", "trial")
     PERFECTO_SECURITY_TOKEN = os.getenv("PERFECTO_SECURITY_TOKEN", "eyJhbGciOiJIUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI2ZDM2NmJiNS01NDAyLTQ4MmMtYTVhOC1kODZhODk4MDYyZjIifQ.eyJpYXQiOjE3NTk3NDg2MjMsImp0aSI6ImVhMjI1ZTY1LThjYmMtNGYxZS1iZTA2LWRjOTAzNTZjNDgwYSIsImlzcyI6Imh0dHBzOi8vYXV0aDMucGVyZmVjdG9tb2JpbGUuY29tL2F1dGgvcmVhbG1zL3RyaWFsLXBlcmZlY3RvbW9iaWxlLWNvbSIsImF1ZCI6Imh0dHBzOi8vYXV0aDMucGVyZmVjdG9tb2JpbGUuY29tL2F1dGgvcmVhbG1zL3RyaWFsLXBlcmZlY3RvbW9iaWxlLWNvbSIsInN1YiI6IjVlYjU0ZTNjLWJkNzMtNGJjZC05YTNjLTBhMzQzOGNjNjgyNiIsInR5cCI6Ik9mZmxpbmUiLCJhenAiOiJvZmZsaW5lLXRva2VuLWdlbmVyYXRvciIsIm5vbmNlIjoiN2Q2OWY2ZDktMGEyYS00YjQxLTg3NjgtY2Y0MzdmMTQ1MzExIiwic2Vzc2lvbl9zdGF0ZSI6IjA4YWQ5Mzc3LTBlMTAtNGYwNS05MWE4LTcxMjQzNzk1ZGRkNCIsInNjb3BlIjoib3BlbmlkIG9mZmxpbmVfYWNjZXNzIHByb2ZpbGUgZW1haWwiLCJzaWQiOiIwOGFkOTM3Ny0wZTEwLTRmMDUtOTFhOC03MTI0Mzc5NWRkZDQifQ.HYBv6-AEgzMCRNOx8bWRkJrsaKObRBAU5QJ9p3rWYPM")
+
+    # Reset configurations
+
+    ANDROID_NO_RESET = os.getenv("ANDROID_NO_RESET", "false").lower() == "true"
+    ANDROID_FULL_RESET = os.getenv("ANDROID_FULL_RESET", "false").lower() == "true"
+    IOS_NO_RESET = os.getenv("IOS_NO_RESET", "false").lower() == "true"
+    IOS_FULL_RESET = os.getenv("IOS_FULL_RESET", "false").lower() == "true"
 
     # Reporting Configuration
     REPORTS_DIR = "reports"
