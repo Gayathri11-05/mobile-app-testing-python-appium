@@ -1,7 +1,7 @@
-""""Account feature test cases."""
+"""Account feature test cases."""
 
 import pytest
-from pages.account_page import AccountPage
+from pages.welcome_page import AccountPage
 from utilities.logger import Logger
 from config.config import Config
 
